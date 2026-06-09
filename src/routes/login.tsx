@@ -1,4 +1,4 @@
-import logo from "@/assets/hr-logo.png";
+import logo from "@/assets/audio-customs-logo.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -19,7 +19,7 @@ export const Route = createFileRoute("/login")({
 
 function LoginPage() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("admin@hrcaraudio.co.uk");
+  const [email, setEmail] = useState("admin@caraudioandcustoms.co.uk");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -45,7 +45,7 @@ function LoginPage() {
     <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-muted px-4">
       <Card className="w-full max-w-md shadow-xl">
         <CardHeader className="items-center text-center">
-          <img src={logo} alt="HR Car Audio & Tints" className="h-20 w-auto" />
+          <img src={logo} alt="Audio Customs" className="h-20 w-auto" />
           <CardTitle className="mt-2">Admin Sign In</CardTitle>
         </CardHeader>
         <CardContent>

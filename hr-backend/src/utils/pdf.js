@@ -5,14 +5,14 @@ import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const LOGO_PATH = path.resolve(__dirname, "../../assets/hr-logo.png");
+const LOGO_PATH = path.resolve(__dirname, "../../assets/audio-customs-logo.png");
 
 const COMPANY = {
-  name: "HR Car Audio & Tints",
-  email: "info@hrcaraudio.co.uk",
-  phone: "+44 7865 543241",
-  hours: "Monday to Saturday 9am to 6pm",
-  site: "hrcaraudio.co.uk",
+  name: "Audio Customs",
+  email: "info@caraudioandcustoms.co.uk",
+  phone: "07777 785927",
+  hours: "Mon–Sat 9:30am–7:30pm, Sun 10am–5pm",
+  site: "caraudioandcustoms.co.uk",
 };
 
 export function generateInvoiceBuffer(invoice) {
@@ -37,20 +37,21 @@ export function generateInvoiceBuffer(invoice) {
 
 function generateHeader(doc) {
   if (fs.existsSync(LOGO_PATH)) {
-    doc.image(LOGO_PATH, 50, 40, { width: 110 });
+    doc.image(LOGO_PATH, 50, 50, { width: 160 });
   } else {
-    doc.fillColor("#dc2626").fontSize(22).font("Helvetica-Bold").text("HR CAR AUDIO", 50, 57);
+    doc.fillColor("#dc2626").fontSize(22).font("Helvetica-Bold").text("AUDIO CUSTOMS", 50, 57);
   }
 
   doc
     .fillColor("#111827")
     .fontSize(10)
     .font("Helvetica-Bold")
-    .text(COMPANY.name, 200, 50, { align: "right" })
+    .text(COMPANY.name, 200, 40, { align: "right" })
     .font("Helvetica")
-    .text(COMPANY.email, 200, 65, { align: "right" })
-    .text(COMPANY.phone, 200, 80, { align: "right" })
-    .text(COMPANY.site, 200, 95, { align: "right" });
+    .text("116-118 Bury New Rd", 200, 55, { align: "right" })
+    .text("Manchester M8 8EB", 200, 68, { align: "right" })
+    .text(COMPANY.phone, 200, 83, { align: "right" })
+    .text(COMPANY.email, 200, 98, { align: "right" });
 }
 
 function generateCustomerInformation(doc, invoice) {
@@ -210,9 +211,15 @@ By proceeding with the installation, you agree to the above terms and conditions
     .fontSize(9)
     .fillColor("#000000")
     .text(
-      `Thank you for your business. ${COMPANY.hours}`,
+      `116-118 Bury New Rd, Manchester M8 8EB`,
       50,
       thankYouY,
+      { align: "center", width: 500 }
+    )
+    .text(
+      `Thank you for your business. ${COMPANY.hours}`,
+      50,
+      thankYouY + 14,
       { align: "center", width: 500 }
     );
 }

@@ -1,4 +1,4 @@
-import logo from "@/assets/hr-logo.png";
+import logo from "@/assets/audio-customs-logo.png";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -35,10 +35,11 @@ export const Route = createFileRoute("/_app/invoices/$id/")({
 });
 
 const COMPANY = {
-  name: "HR Car Audio & Tints",
-  email: "info@hrcaraudio.co.uk",
-  phone: "+44 7865 543241",
-  site: "hrcaraudio.co.uk",
+  name: "Audio Customs",
+  email: "info@caraudioandcustoms.co.uk",
+  phone: "07777 785927",
+  address: "116-118 Bury New Rd, Manchester M8 8EB",
+  site: "caraudioandcustoms.co.uk",
 };
 
 function fmt(n: number) {
@@ -54,13 +55,14 @@ function InvoiceViewPage() {
   const [emailSubject, setEmailSubject] = useState("");
   const [emailMessage, setEmailMessage] = useState("");
   const [sending, setSending] = useState(false);
+  const isEmailEnabled = import.meta.env.VITE_EMAIL_ENABLED === "true";
 
   useEffect(() => {
     api<{ invoice: Invoice }>(`/api/invoices/${id}`)
       .then((r) => {
         setInvoice(r.invoice);
         setEmailTo(r.invoice.client?.email || "");
-        setEmailSubject(`Invoice ${r.invoice.invoiceNumber} – HR Car Audio & Tints`);
+        setEmailSubject(`Invoice ${r.invoice.invoiceNumber} – Audio Customs`);
         setEmailMessage(
           `Your invoice for professional installation and customization services has been generated. Please find the details below and a full itemized PDF attached.`
         );
@@ -134,48 +136,50 @@ function InvoiceViewPage() {
           <Button variant="outline" size="sm" onClick={handleDownload}>
             <Download className="h-4 w-4 mr-1" /> PDF
           </Button>
-          <Dialog open={emailOpen} onOpenChange={setEmailOpen}>
-            <DialogTrigger asChild>
-              <Button variant="outline" size="sm">
-                <Mail className="h-4 w-4 mr-1" /> Email
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-[700px]">
-              <DialogHeader>
-                <DialogTitle>Email Invoice</DialogTitle>
-              </DialogHeader>
-              <div className="space-y-3">
-                <div className="space-y-2">
-                  <Label>To</Label>
-                  <Input value={emailTo} onChange={(e) => setEmailTo(e.target.value)} />
-                </div>
-                <div className="space-y-2">
-                  <Label>Subject</Label>
-                  <Input
-                    value={emailSubject}
-                    onChange={(e) => setEmailSubject(e.target.value)}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Message</Label>
-                  <Textarea
-                    value={emailMessage}
-                    onChange={(e) => setEmailMessage(e.target.value)}
-                    placeholder="Enter your message here..."
-                    className="min-h-[150px]"
-                  />
-                </div>
-              </div>
-              <DialogFooter>
-                <Button variant="outline" onClick={() => setEmailOpen(false)}>
-                  Cancel
+          {isEmailEnabled && (
+            <Dialog open={emailOpen} onOpenChange={setEmailOpen}>
+              <DialogTrigger asChild>
+                <Button variant="outline" size="sm">
+                  <Mail className="h-4 w-4 mr-1" /> Email
                 </Button>
-                <Button onClick={handleSendEmail} disabled={sending}>
-                  {sending ? "Sending…" : "Send"}
-                </Button>
-              </DialogFooter>
-            </DialogContent>
-          </Dialog>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[700px]">
+                <DialogHeader>
+                  <DialogTitle>Email Invoice</DialogTitle>
+                </DialogHeader>
+                <div className="space-y-3">
+                  <div className="space-y-2">
+                    <Label>To</Label>
+                    <Input value={emailTo} onChange={(e) => setEmailTo(e.target.value)} />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Subject</Label>
+                    <Input
+                      value={emailSubject}
+                      onChange={(e) => setEmailSubject(e.target.value)}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Message</Label>
+                    <Textarea
+                      value={emailMessage}
+                      onChange={(e) => setEmailMessage(e.target.value)}
+                      placeholder="Enter your message here..."
+                      className="min-h-[150px]"
+                    />
+                  </div>
+                </div>
+                <DialogFooter>
+                  <Button variant="outline" onClick={() => setEmailOpen(false)}>
+                    Cancel
+                  </Button>
+                  <Button onClick={handleSendEmail} disabled={sending}>
+                    {sending ? "Sending…" : "Send"}
+                  </Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+          )}
           <Link to="/invoices/$id/edit" params={{ id }}>
             <Button variant="outline" size="sm">
               <Pencil className="h-4 w-4 mr-1" /> Edit
@@ -204,12 +208,12 @@ function InvoiceViewPage() {
       <Card className="print:shadow-none print:border-0">
         <CardContent className="p-8 print:p-0">
           <div className="flex flex-col sm:flex-row justify-between items-start gap-6">
-            <img src={logo} alt="HR" className="h-20 w-auto" />
+            <img src={logo} alt="Audio Customs" className="h-12 w-auto mt-2" />
             <div className="sm:text-right text-sm">
               <div className="font-bold text-lg">{COMPANY.name}</div>
-              <div>{COMPANY.email}</div>
+              <div>{COMPANY.address}</div>
               <div>{COMPANY.phone}</div>
-              <div>{COMPANY.site}</div>
+              <div>{COMPANY.email}</div>
             </div>
           </div>
 
@@ -317,7 +321,10 @@ function InvoiceViewPage() {
               <p>Warranty does not cover accidental damage, misuse, or wear and tear.</p>
               <p>By proceeding with the installation, you agree to the above terms and conditions.</p>
             </div>
-            Thank you for your business. Monday to Saturday 9am to 6pm
+            <div className="text-center text-[9px]">
+              116-118 Bury New Rd, Manchester M8 8EB
+            </div>
+            Thank you for your business. Mon–Sat 9:30am–7:30pm, Sun 10am–5pm
           </div>
         </CardContent>
       </Card>

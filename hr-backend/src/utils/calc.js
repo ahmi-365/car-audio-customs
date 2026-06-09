@@ -27,5 +27,5 @@ export function generateInvoiceNumber() {
     d.getDate()
   ).padStart(2, "0")}`;
   const rand = Math.floor(1000 + Math.random() * 9000);
-  return `HR-${ymd}-${rand}`;
+  return `AC-${ymd}-${rand}`;
 }

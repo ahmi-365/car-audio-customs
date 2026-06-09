@@ -9,7 +9,7 @@ import {
   useRouter,
 } from "@tanstack/react-router";
 
-import hrLogo from "@/assets/hr-logo.png";
+import acLogo from "@/assets/audio-customs-logo.png";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -58,12 +58,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "HR Car Audio – Invoices" },
-      { name: "description", content: "HR Car Audio & Tints invoice management" },
+      { title: "Audio Customs – Invoices" },
+      { name: "description", content: "Audio Customs invoice management" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: hrLogo }
+      { rel: "icon", href: acLogo, type: "image/png" }
     ],
   }),
   shellComponent: RootShell,

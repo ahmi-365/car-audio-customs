@@ -2,7 +2,7 @@ import { createFileRoute, Link, Outlet, redirect, useNavigate, useRouterState } 
 import { auth } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import { LogOut, FileText, Plus } from "lucide-react";
-import logo from "@/assets/hr-logo.png";
+import logo from "@/assets/audio-customs-logo.png";
 
 export const Route = createFileRoute("/_app")({
   beforeLoad: () => {
@@ -22,9 +22,9 @@ function AppLayout() {
       <header className="bg-card border-b sticky top-0 z-10 print:hidden shadow-sm">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-2 sm:gap-4">
           <Link to="/invoices" className="flex items-center gap-2 sm:gap-3 overflow-hidden">
-            <img src={logo} alt="HR" className="h-8 sm:h-10 w-auto flex-shrink-0" />
+            <img src={logo} alt="Audio Customs" className="h-8 sm:h-10 w-auto flex-shrink-0" />
             <div className="hidden xs:block truncate">
-              <div className="font-bold text-xs sm:text-sm leading-tight truncate">HR Car Audio & Tints</div>
+              <div className="font-bold text-xs sm:text-sm leading-tight truncate">Audio Customs</div>
               <div className="text-[10px] sm:text-xs text-muted-foreground">Invoice Manager</div>
             </div>
           </Link>

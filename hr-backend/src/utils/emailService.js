@@ -3,19 +3,19 @@ import nodemailer from "nodemailer";
 import path from "path";
 import { fileURLToPath } from "url";
 
-const BRAND_NAME = "HR Car Audio & Tints";
-const BRAND_LOGO_CID = "hrcaraudio-brand-logo";
+const BRAND_NAME = "Audio Customs";
+const BRAND_LOGO_CID = "audiocustoms-brand-logo";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const BACKEND_ROOT = path.resolve(__dirname, "../../");
-const BRAND_LOGO_PATH = path.join(BACKEND_ROOT, "assets/hr-logo.png");
+const BRAND_LOGO_PATH = path.join(BACKEND_ROOT, "assets/audio-customs-logo.png");
 
 let transporter = null;
 
 function getBrandLogoAttachment() {
   if (!existsSync(BRAND_LOGO_PATH)) return null;
   return {
-    filename: "hr-logo.png",
+    filename: "audio-customs-logo.png",
     path: BRAND_LOGO_PATH,
     cid: BRAND_LOGO_CID,
   };
@@ -128,7 +128,7 @@ function buildTemplate({ title, greeting, intro, sections = [], highlights = [],
             <tr>
               <td style="padding:32px;background:#111827;color:#9ca3af;font-size:13px;line-height:1.6;text-align:center;border-top:1px solid #1f2937;">
                 ${safeFooter}<br>
-                <div style="margin-top:16px;color:#6b7280;">info@hrcaraudio.co.uk • +44 7865 543241</div>
+                <div style="margin-top:16px;color:#6b7280;">info@caraudioandcustoms.co.uk • 07777 785927</div>
               </td>
             </tr>
           </table>
@@ -180,7 +180,7 @@ async function buildByType(type, data = {}) {
           { label: "Balance Due", value: formatCurrency(data.balanceDue) },
         ],
         cta: undefined,
-        outro: "Thank you for choosing HR Car Audio & Tints! We appreciate your business.",
+        outro: "Thank you for choosing Audio Customs! We appreciate your business.",
       }),
     };
   }
@@ -209,7 +209,7 @@ async function buildByType(type, data = {}) {
     ...buildTemplate({
       title: data.title || "Update",
       greeting: `Hi ${data.name || "there"},`,
-      intro: data.message || "You have a new update from HR Car Audio & Tints.",
+      intro: data.message || "You have a new update from Audio Customs.",
     }),
   };
 }
@@ -221,7 +221,7 @@ export async function sendTemplatedEmail({ type, to, data = {}, attachments = []
   const brandLogoAttachment = getBrandLogoAttachment();
 
   try {
-    const senderEmail = process.env.SMTP_FROM || "info@hrcaraudio.co.uk";
+    const senderEmail = process.env.SMTP_FROM || "info@caraudioandcustoms.co.uk";
     const fromHeader = process.env.SMTP_FROM_NAME 
       ? `"${process.env.SMTP_FROM_NAME}" <${senderEmail}>`
       : `"${BRAND_NAME}" <${senderEmail}>`;
