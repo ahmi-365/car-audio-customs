@@ -1,6 +1,6 @@
-# Audio Customs – Invoice Manager
+# Car Audio & Customs – Invoice Manager
 
-Full-stack invoice management system for **Audio Customs** (caraudioandcustoms.co.uk).
+Full-stack invoice management system for **Car Audio & Customs** (caraudioandcustoms.co.uk).
 
 - **Frontend**: TanStack Start (React + Vite + Tailwind CSS)
 - **Backend**: Node.js + Express + MongoDB (`hr-backend/`)

@@ -8,8 +8,8 @@ const __dirname = path.dirname(__filename);
 const LOGO_PATH = path.resolve(__dirname, "../../assets/audio-customs-logo.png");
 
 const COMPANY = {
-  name: "Audio Customs",
-  email: "info@caraudioandcustoms.co.uk",
+  name: "Car Audio & Customs",
+  email: "caraudiocustoms7@gmail.com",
   phone: "07777 785927",
   hours: "Mon–Sat 9:30am–7:30pm, Sun 10am–5pm",
   site: "caraudioandcustoms.co.uk",
@@ -37,9 +37,9 @@ export function generateInvoiceBuffer(invoice) {
 
 function generateHeader(doc) {
   if (fs.existsSync(LOGO_PATH)) {
-    doc.image(LOGO_PATH, 50, 50, { width: 160 });
+    doc.image(LOGO_PATH, 50, 15, { width: 200 });
   } else {
-    doc.fillColor("#dc2626").fontSize(22).font("Helvetica-Bold").text("AUDIO CUSTOMS", 50, 57);
+    doc.fillColor("#dc2626").fontSize(22).font("Helvetica-Bold").text("CAR AUDIO & CUSTOMS", 50, 57);
   }
 
   doc
@@ -173,7 +173,7 @@ function generateInvoiceTable(doc, invoice, infoBottom = 295) {
     totalY += 20;
     doc.fontSize(10);
   }
-  
+
   totalY += 10;
 
   if (invoice.notes) {

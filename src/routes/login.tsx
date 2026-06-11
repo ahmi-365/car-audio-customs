@@ -19,7 +19,7 @@ export const Route = createFileRoute("/login")({
 
 function LoginPage() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("admin@caraudioandcustoms.co.uk");
+  const [email, setEmail] = useState("caraudiocustoms7@gmail.com");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -45,7 +45,7 @@ function LoginPage() {
     <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-muted px-4">
       <Card className="w-full max-w-md shadow-xl">
         <CardHeader className="items-center text-center">
-          <img src={logo} alt="Audio Customs" className="h-20 w-auto" />
+          <img src={logo} alt="Car Audio & Customs" className="h-48 w-auto" />
           <CardTitle className="mt-2">Admin Sign In</CardTitle>
         </CardHeader>
         <CardContent>

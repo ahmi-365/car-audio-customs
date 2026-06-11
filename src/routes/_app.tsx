@@ -22,16 +22,16 @@ function AppLayout() {
       <header className="bg-card border-b sticky top-0 z-10 print:hidden shadow-sm">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-2 sm:gap-4">
           <Link to="/invoices" className="flex items-center gap-2 sm:gap-3 overflow-hidden">
-            <img src={logo} alt="Audio Customs" className="h-8 sm:h-10 w-auto flex-shrink-0" />
+            <img src={logo} alt="Car Audio & Customs" className="h-14 sm:h-16 w-auto flex-shrink-0" />
             <div className="hidden xs:block truncate">
-              <div className="font-bold text-xs sm:text-sm leading-tight truncate">Audio Customs</div>
+              <div className="font-bold text-xs sm:text-sm leading-tight truncate">Car Audio & Customs</div>
               <div className="text-[10px] sm:text-xs text-muted-foreground">Invoice Manager</div>
             </div>
           </Link>
           <nav className="flex items-center gap-1 sm:gap-2">
             <Link to="/invoices">
               <Button variant={path === "/invoices" ? "default" : "ghost"} size="sm" className="px-2 sm:px-3">
-                <FileText className="h-4 w-4 sm:mr-1" /> 
+                <FileText className="h-4 w-4 sm:mr-1" />
                 <span className="hidden sm:inline">Invoices</span>
               </Button>
             </Link>

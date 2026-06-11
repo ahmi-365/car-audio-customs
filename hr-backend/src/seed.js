@@ -5,9 +5,9 @@ import User from "./models/User.js";
 async function run() {
   const uri = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/hr_invoices";
   await mongoose.connect(uri);
-  const email = (process.env.ADMIN_EMAIL || "admin@caraudioandcustoms.co.uk").toLowerCase();
+  const email = (process.env.ADMIN_EMAIL || "caraudiocustoms7@gmail.com").toLowerCase();
   const password = process.env.ADMIN_PASSWORD || "Admin@12345";
-  const name = process.env.ADMIN_NAME || "Audio Customs Admin";
+  const name = process.env.ADMIN_NAME || "Car Audio & Customs Admin";
 
   const passwordHash = await bcrypt.hash(password, 10);
 

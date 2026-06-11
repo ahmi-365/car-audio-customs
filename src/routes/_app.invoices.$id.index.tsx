@@ -35,8 +35,8 @@ export const Route = createFileRoute("/_app/invoices/$id/")({
 });
 
 const COMPANY = {
-  name: "Audio Customs",
-  email: "info@caraudioandcustoms.co.uk",
+  name: "Car Audio & Customs",
+  email: "caraudiocustoms7@gmail.com",
   phone: "07777 785927",
   address: "116-118 Bury New Rd, Manchester M8 8EB",
   site: "caraudioandcustoms.co.uk",
@@ -62,7 +62,7 @@ function InvoiceViewPage() {
       .then((r) => {
         setInvoice(r.invoice);
         setEmailTo(r.invoice.client?.email || "");
-        setEmailSubject(`Invoice ${r.invoice.invoiceNumber} – Audio Customs`);
+        setEmailSubject(`Invoice ${r.invoice.invoiceNumber} – Car Audio & Customs`);
         setEmailMessage(
           `Your invoice for professional installation and customization services has been generated. Please find the details below and a full itemized PDF attached.`
         );
@@ -208,7 +208,7 @@ function InvoiceViewPage() {
       <Card className="print:shadow-none print:border-0">
         <CardContent className="p-8 print:p-0">
           <div className="flex flex-col sm:flex-row justify-between items-start gap-6">
-            <img src={logo} alt="Audio Customs" className="h-12 w-auto mt-2" />
+            <img src={logo} alt="Car Audio & Customs" className="h-20 w-auto mt-0" />
             <div className="sm:text-right text-sm">
               <div className="font-bold text-lg">{COMPANY.name}</div>
               <div>{COMPANY.address}</div>
@@ -356,9 +356,8 @@ function Row({
 }) {
   return (
     <div
-      className={`flex justify-between ${bold ? "font-semibold" : ""} ${
-        accent ? "text-primary text-base font-bold" : ""
-      } ${className}`}
+      className={`flex justify-between ${bold ? "font-semibold" : ""} ${accent ? "text-primary text-base font-bold" : ""
+        } ${className}`}
     >
       <span>{label}</span>
       <span>{value}</span>

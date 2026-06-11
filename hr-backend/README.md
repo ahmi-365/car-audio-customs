@@ -1,6 +1,6 @@
-# Audio Customs – Invoice Backend
+# Car Audio & Customs – Invoice Backend
 
-Node.js + Express + MongoDB backend for the Audio Customs invoice management system.
+Node.js + Express + MongoDB backend for the Car Audio & Customs invoice management system.
 
 ## Setup
 
@@ -30,4 +30,4 @@ All `/api/invoices/*` require `Authorization: Bearer <token>`.
 - No tax in calculations.
 - Items: `{ name, description?, price, quantity }`.
 - Totals: `subtotal = sum(price*qty)`, `total = subtotal`, `balanceDue = total - depositPaid`.
-- PDF mirrors the layout of the original `pdfkit` template, branded for Audio Customs.
+- PDF mirrors the layout of the original `pdfkit` template, branded for Car Audio & Customs.

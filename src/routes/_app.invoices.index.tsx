@@ -72,7 +72,7 @@ function InvoicesListPage() {
         <div>
           <h1 className="text-2xl font-bold">Invoices</h1>
           <p className="text-sm text-muted-foreground">
-            Manage all customer invoices for Audio Customs.
+            Manage all customer invoices for Car Audio & Customs.
           </p>
         </div>
         <Button onClick={() => navigate({ to: "/invoices/new" })}>
